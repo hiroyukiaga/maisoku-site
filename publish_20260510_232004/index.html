@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マーラータン店舗</title>
+  <style>
+    body {
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .header h1 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .header p {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .proposal-date {
+      font-size: 14px !important;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .property-card {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .property-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .property-name {
+      color: #333;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+
+    .interest-checkbox {
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .interest-text {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #111;
+    }
+
+    .property-comment-label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 8px;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .property-comment {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .property-image {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .company-info {
+      background: white;
+      padding: 22px 24px;
+      border-radius: 12px;
+      margin-top: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .company-info-title {
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .company-info p {
+      margin: 4px 0;
+    }
+
+    .company-name {
+      font-weight: bold;
+    }
+
+    .company-contact a {
+      color: #111;
+      text-decoration: underline;
+    }
+
+    .submit-box {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-top: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    button {
+      background: #111;
+      color: white;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .submit-message {
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      margin-top: 24px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>ご提案：マーラータン店舗</h1>
+    <p>トウ イ　様　向けの物件資料です。気になる物件にチェックを入れて、確認事項があれば各物件のコメント欄にご記入ください。</p>
+    <p class="proposal-date">提案日：2026年5月10日</p>
+  </div>
+
+  <input type="hidden" id="customerName" value="トウ イ">
+  <input type="hidden" id="customerEmail" value="ahtaowei521@gmail.com">
+  <input type="hidden" id="projectName" value="マーラータン店舗">
+  <input type="hidden" id="proposalDate" value="2026年5月10日">
+  <input type="hidden" id="appsScriptUrl" value="https://script.google.com/macros/s/AKfycbzp8y_ox9-cby0ioXQ0COP-DCHc8YGGi1-6QSZVD7NsVI1ZTXh5MBojtWnG87a77ICL/exec">
+
+  <div class="property-card"
+       data-property-number="物件1"
+       data-property-name="浜松町松永ビル">
+    <div class="property-title">
+      物件1：<span class="property-name">浜松町松永ビル</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/07eb2225f9_masked.jpg" alt="物件1：浜松町松永ビル">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件2"
+       data-property-name="経82ビル">
+    <div class="property-title">
+      物件2：<span class="property-name">経82ビル</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/91d7c992dd_masked.jpg" alt="物件2：経82ビル">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件3"
+       data-property-name="六本木交差点">
+    <div class="property-title">
+      物件3：<span class="property-name">六本木交差点</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/4e7ed9d45d_masked.jpg" alt="物件3：六本木交差点">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件4"
+       data-property-name="貸店舗">
+    <div class="property-title">
+      物件4：<span class="property-name">貸店舗</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/554e0bc9f5_masked.jpg" alt="物件4：貸店舗">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件5"
+       data-property-name="事務所・店舗">
+    <div class="property-title">
+      物件5：<span class="property-name">事務所・店舗</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/cf16526812_masked.jpg" alt="物件5：事務所・店舗">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件6"
+       data-property-name="階貨店舗">
+    <div class="property-title">
+      物件6：<span class="property-name">階貨店舗</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/a720886051_masked.jpg" alt="物件6：階貨店舗">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件7"
+       data-property-name="ＩＥ－Ａ:店舗">
+    <div class="property-title">
+      物件7：<span class="property-name">ＩＥ－Ａ:店舗</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/6b1779a141_masked.jpg" alt="物件7：ＩＥ－Ａ:店舗">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件8"
+       data-property-name="芝浦運河に面した新築ビルの1階店舗区画">
+    <div class="property-title">
+      物件8：<span class="property-name">芝浦運河に面した新築ビルの1階店舗区画</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/b2bf981601_masked.jpg" alt="物件8：芝浦運河に面した新築ビルの1階店舗区画">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件9"
+       data-property-name="芝浦運河に面した新築ビルの1階店舗区画">
+    <div class="property-title">
+      物件9：<span class="property-name">芝浦運河に面した新築ビルの1階店舗区画</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/42e658141b_masked.jpg" alt="物件9：芝浦運河に面した新築ビルの1階店舗区画">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件10"
+       data-property-name="貸店舗(一部">
+    <div class="property-title">
+      物件10：<span class="property-name">貸店舗(一部</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/b69fae3775_masked.jpg" alt="物件10：貸店舗(一部">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件11"
+       data-property-name="ビル正面">
+    <div class="property-title">
+      物件11：<span class="property-name">ビル正面</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/f8875a17f3_masked.jpg" alt="物件11：ビル正面">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件12"
+       data-property-name="プラチナ通り沿いの路面店舗物件!">
+    <div class="property-title">
+      物件12：<span class="property-name">プラチナ通り沿いの路面店舗物件!</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/9584893429_masked.jpg" alt="物件12：プラチナ通り沿いの路面店舗物件!">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件13"
+       data-property-name="東京都渋谷区代々木1-40-12">
+    <div class="property-title">
+      物件13：<span class="property-name">東京都渋谷区代々木1-40-12</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/2343816f4b_masked.jpg" alt="物件13：東京都渋谷区代々木1-40-12">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件14"
+       data-property-name="東京都渋谷区代々木1-40-12">
+    <div class="property-title">
+      物件14：<span class="property-name">東京都渋谷区代々木1-40-12</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/70a72125d0_masked.jpg" alt="物件14：東京都渋谷区代々木1-40-12">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件15"
+       data-property-name="銀座線">
+    <div class="property-title">
+      物件15：<span class="property-name">銀座線</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/d92cc8d059_masked.jpg" alt="物件15：銀座線">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件16"
+       data-property-name="代々木センタービル">
+    <div class="property-title">
+      物件16：<span class="property-name">代々木センタービル</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/2c9c2391d7_masked.jpg" alt="物件16：代々木センタービル">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件17"
+       data-property-name="貨店舗(一部">
+    <div class="property-title">
+      物件17：<span class="property-name">貨店舗(一部</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/b2b3613c9f_masked.jpg" alt="物件17：貨店舗(一部">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件18"
+       data-property-name="第３ｏｓＶビル">
+    <div class="property-title">
+      物件18：<span class="property-name">第３ｏｓＶビル</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/ef4a0b7b77_masked.jpg" alt="物件18：第３ｏｓＶビル">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件19"
+       data-property-name="銀座線">
+    <div class="property-title">
+      物件19：<span class="property-name">銀座線</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/48856399a5_masked.jpg" alt="物件19：銀座線">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件20"
+       data-property-name="貸店舗">
+    <div class="property-title">
+      物件20：<span class="property-name">貸店舗</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/a1d8b98411_masked.jpg" alt="物件20：貸店舗">
+  </div>
+
+  <div class="company-info">
+    <div class="company-info-title">お問い合わせ先</div>
+    <p class="company-name">株式会社HIRO（東京都知事免許(1)111121号）</p>
+    <p>〒107-0062 東京都港区南青山4-18-11 フォレストヒルズイーストウィング2F</p>
+    <p>担当者：阿河 寛之</p>
+    <p class="company-contact">携帯：<a href="tel:080-3445-7372">080-3445-7372</a></p>
+    <p class="company-contact">メール：<a href="mailto:hiro@hir0.jp">hiro@hir0.jp</a></p>
+  </div>
+
+  <div class="submit-box">
+    <button type="button" id="submitButton" onclick="submitInquiry()">送信する</button>
+    <p id="submitMessage" class="submit-message"></p>
+
+    <div class="note">
+      本資料は物件紹介を目的として掲載しています。募集条件、空室状況、内覧可否、申込状況は変動する場合があります。
+      図面と現況が異なる場合は現況を優先します。<br>
+      このページはご案内先のお客様専用URLです。
+    </div>
+  </div>
+</div>
+
+<script>
+async function submitInquiry() {
+  const button = document.getElementById("submitButton");
+  const message = document.getElementById("submitMessage");
+
+  const propertyCards = Array.from(document.querySelectorAll(".property-card"));
+
+  const selectedItems = propertyCards.map(card => {
+    const propertyNumber = card.dataset.propertyNumber || "";
+    const propertyName = card.dataset.propertyName || "";
+    const checked = card.querySelector(".property-interest").checked;
+    const comment = card.querySelector(".property-comment").value.trim();
+
+    return {
+      propertyNumber,
+      propertyName,
+      interested: checked ? "TRUE" : "FALSE",
+      comment
+    };
+  }).filter(item => item.interested === "TRUE" || item.comment !== "");
+
+  if (selectedItems.length === 0) {
+    message.textContent = "気になる物件にチェックを入れるか、確認事項をご記入ください。";
+    message.style.color = "#c00";
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "送信中...";
+  message.textContent = "";
+
+  const params = new URLSearchParams();
+
+  params.append("customerName", document.getElementById("customerName").value);
+  params.append("customerEmail", document.getElementById("customerEmail").value);
+  params.append("projectName", document.getElementById("projectName").value);
+  params.append("proposalDate", document.getElementById("proposalDate").value);
+  params.append("pageUrl", window.location.href);
+
+  selectedItems.forEach(item => {
+    params.append("propertyNumber", item.propertyNumber);
+    params.append("propertyName", item.propertyName);
+    params.append("propertyInterested", item.interested);
+    params.append("propertyComment", item.comment);
+  });
+
+  try {
+    await fetch(document.getElementById("appsScriptUrl").value, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: params
+    });
+
+    message.textContent = "送信しました。ご連絡ありがとうございます。";
+    message.style.color = "#0a7a2f";
+    button.textContent = "送信済み";
+  } catch (error) {
+    message.textContent = "送信に失敗しました。時間をおいて再度お試しください。";
+    message.style.color = "#c00";
+    button.disabled = false;
+    button.textContent = "送信する";
+  }
+}
+</script>
+
+</body>
+</html>
