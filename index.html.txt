@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>マイソク共有ページ</title>
+</head>
+<body>
+  <h1>マイソク共有ページ</h1>
+  <p>Vercelで公開テスト中です。</p>
+</body>
+</html>
