@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クリニック</title>
+  <style>
+    body {
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .header h1 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .header p {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .proposal-date {
+      font-size: 14px !important;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .property-card {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .property-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .property-name {
+      color: #333;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+
+    .interest-checkbox {
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .interest-text {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #111;
+    }
+
+    .property-comment-label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 8px;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .property-comment {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .property-image {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .company-info {
+      background: white;
+      padding: 22px 24px;
+      border-radius: 12px;
+      margin-top: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .company-info-title {
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .company-info p {
+      margin: 4px 0;
+    }
+
+    .company-name {
+      font-weight: bold;
+    }
+
+    .company-contact a {
+      color: #111;
+      text-decoration: underline;
+    }
+
+    .submit-box {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-top: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    button {
+      background: #111;
+      color: white;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .submit-message {
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      margin-top: 24px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>ご提案：クリニック</h1>
+    <p>上官　様　向けの物件資料です。気になる物件にチェックを入れて、確認事項があれば各物件のコメント欄にご記入ください。</p>
+    <p class="proposal-date">提案日：2026年5月13日</p>
+  </div>
+
+  <input type="hidden" id="customerName" value="上官">
+  <input type="hidden" id="customerEmail" value="toshitaka0718@gmail.com">
+  <input type="hidden" id="projectName" value="クリニック">
+  <input type="hidden" id="proposalDate" value="2026年5月13日">
+  <input type="hidden" id="appsScriptUrl" value="https://script.google.com/macros/s/AKfycbzp8y_ox9-cby0ioXQ0COP-DCHc8YGGi1-6QSZVD7NsVI1ZTXh5MBojtWnG87a77ICL/exec">
+
+  <div class="property-card"
+       data-property-number="物件1"
+       data-property-name="店舗事務所">
+    <div class="property-title">
+      物件1：<span class="property-name">店舗事務所</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/6538fb4b99_masked.jpg" alt="物件1：店舗事務所">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件2"
+       data-property-name="代々木センタービル">
+    <div class="property-title">
+      物件2：<span class="property-name">代々木センタービル</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/e7ebc7ff4f_masked.jpg" alt="物件2：代々木センタービル">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件3"
+       data-property-name="貸店舗事務所">
+    <div class="property-title">
+      物件3：<span class="property-name">貸店舗事務所</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/31f7cb40ea_masked.jpg" alt="物件3：貸店舗事務所">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件4"
+       data-property-name="六本木福吉町ビル">
+    <div class="property-title">
+      物件4：<span class="property-name">六本木福吉町ビル</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/79d18c2e1a_masked.jpg" alt="物件4：六本木福吉町ビル">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件5"
+       data-property-name="芝藤ビル">
+    <div class="property-title">
+      物件5：<span class="property-name">芝藤ビル</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/f43ce313f6_masked.jpg" alt="物件5：芝藤ビル">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件6"
+       data-property-name="TK猿楽町ビル">
+    <div class="property-title">
+      物件6：<span class="property-name">TK猿楽町ビル</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/232b3bcfd0_masked.jpg" alt="物件6：TK猿楽町ビル">
+  </div>
+
+  <div class="property-card"
+       data-property-number="物件7"
+       data-property-name="路面店舗">
+    <div class="property-title">
+      物件7：<span class="property-name">路面店舗</span>
+    </div>
+
+    <label class="check-row">
+      <input class="interest-checkbox property-interest" type="checkbox">
+      <span class="interest-text">この物件に興味あり</span>
+    </label>
+
+    <label class="property-comment-label">確認事項があればご記入ください</label>
+    <textarea class="property-comment" rows="3" placeholder="例：内覧したい、賃料交渉できるか確認したい、重飲食可能か知りたい 等"></textarea>
+
+    <img class="property-image" src="processed/66a0e67c66_masked.jpg" alt="物件7：路面店舗">
+  </div>
+
+  <div class="company-info">
+    <div class="company-info-title">お問い合わせ先</div>
+    <p class="company-name">株式会社HIRO（東京都知事免許(1)111121号）</p>
+    <p>〒107-0062 東京都港区南青山4-18-11 フォレストヒルズイーストウィング2F</p>
+    <p>担当者：阿河 寛之</p>
+    <p class="company-contact">携帯：<a href="tel:080-3445-7372">080-3445-7372</a></p>
+    <p class="company-contact">メール：<a href="mailto:hiro@hir0.jp">hiro@hir0.jp</a></p>
+  </div>
+
+  <div class="submit-box">
+    <button type="button" id="submitButton" onclick="submitInquiry()">送信する</button>
+    <p id="submitMessage" class="submit-message"></p>
+
+    <div class="note">
+      本資料は物件紹介を目的として掲載しています。募集条件、空室状況、内覧可否、申込状況は変動する場合があります。
+      図面と現況が異なる場合は現況を優先します。<br>
+      このページはご案内先のお客様専用URLです。
+    </div>
+  </div>
+</div>
+
+<script>
+async function submitInquiry() {
+  const button = document.getElementById("submitButton");
+  const message = document.getElementById("submitMessage");
+
+  const propertyCards = Array.from(document.querySelectorAll(".property-card"));
+
+  const selectedItems = propertyCards.map(card => {
+    const propertyNumber = card.dataset.propertyNumber || "";
+    const propertyName = card.dataset.propertyName || "";
+    const checked = card.querySelector(".property-interest").checked;
+    const comment = card.querySelector(".property-comment").value.trim();
+
+    return {
+      propertyNumber,
+      propertyName,
+      interested: checked ? "TRUE" : "FALSE",
+      comment
+    };
+  }).filter(item => item.interested === "TRUE" || item.comment !== "");
+
+  if (selectedItems.length === 0) {
+    message.textContent = "気になる物件にチェックを入れるか、確認事項をご記入ください。";
+    message.style.color = "#c00";
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "送信中...";
+  message.textContent = "";
+
+  const params = new URLSearchParams();
+
+  params.append("customerName", document.getElementById("customerName").value);
+  params.append("customerEmail", document.getElementById("customerEmail").value);
+  params.append("projectName", document.getElementById("projectName").value);
+  params.append("proposalDate", document.getElementById("proposalDate").value);
+  params.append("pageUrl", window.location.href);
+
+  selectedItems.forEach(item => {
+    params.append("propertyNumber", item.propertyNumber);
+    params.append("propertyName", item.propertyName);
+    params.append("propertyInterested", item.interested);
+    params.append("propertyComment", item.comment);
+  });
+
+  try {
+    await fetch(document.getElementById("appsScriptUrl").value, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: params
+    });
+
+    message.textContent = "送信しました。ご連絡ありがとうございます。";
+    message.style.color = "#0a7a2f";
+    button.textContent = "送信済み";
+  } catch (error) {
+    message.textContent = "送信に失敗しました。時間をおいて再度お試しください。";
+    message.style.color = "#c00";
+    button.disabled = false;
+    button.textContent = "送信する";
+  }
+}
+</script>
+
+</body>
+</html>
